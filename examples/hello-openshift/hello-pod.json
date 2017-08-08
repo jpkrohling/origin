@@ -2,11 +2,7 @@
   "kind": "Pod",
   "apiVersion": "v1",
   "metadata": {
-    "name": "hello-openshift",
-    "creationTimestamp": null,
-    "labels": {
-      "name": "hello-openshift"
-    }
+    "name": "hello-openshift"
   },
   "spec": {
     "containers": [
@@ -17,33 +13,16 @@
           {
             "containerPort": 8080,
             "protocol": "TCP"
-          }
-        ],
-        "resources": {},
-        "volumeMounts": [
+          },
           {
-            "name":"tmp",
-            "mountPath":"/tmp"
+            "containerPort": 8888,
+            "protocol": "TCP"
           }
         ],
-        "terminationMessagePath": "/dev/termination-log",
-        "imagePullPolicy": "IfNotPresent",
-        "capabilities": {},
-        "securityContext": {
-          "capabilities": {},
-          "privileged": false
-        }
-      }
-    ],
-    "volumes": [
-      {
-        "name":"tmp",
-        "emptyDir": {}
+        "imagePullPolicy": "IfNotPresent"
       }
     ],
     "restartPolicy": "Always",
-    "dnsPolicy": "ClusterFirst",
-    "serviceAccount": ""
-  },
-  "status": {}
+    "dnsPolicy": "ClusterFirst"
+  }
 }

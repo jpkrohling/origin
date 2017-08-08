@@ -45,6 +45,5 @@ To test from external network, you need to create router. Please refer to [Runni
 
 If you need to rebuild the image:
 
-    $ go build -tags netgo   # avoid dynamic linking (we want a static binary)
-    $ mv hello-openshift bin
+    $ go build -tags netgo -o bin/hello-openshift # avoid dynamic linking (we want a static binary)
     $ docker build -t docker.io/openshift/hello-openshift .
