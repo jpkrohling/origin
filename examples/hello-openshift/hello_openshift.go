@@ -33,6 +33,9 @@ func listenAndServe(port string) {
 }
 
 func main() {
+	localAgent := fmt.Sprintf("%s:6831", os.Getenv("JAEGER_AGENT_HOST"))
+	log.Printf("Using agent at %s", localAgent)
+
 	config := &jaegercfg.Configuration{
 		Sampler: &jaegercfg.SamplerConfig{
 			Type:  jaeger.SamplerTypeConst,
@@ -40,7 +43,7 @@ func main() {
 		},
 		Reporter: &jaegercfg.ReporterConfig{
 			LogSpans:           true,
-			LocalAgentHostPort: "jaeger-agent:5775",
+			LocalAgentHostPort: localAgent,
 		},
 	}
 
